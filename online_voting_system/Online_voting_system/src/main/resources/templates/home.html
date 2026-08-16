@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VoteSecure - Online Voting System</title>
+</head>
+
+<body>
+
+<section>
+
+	<div class="voting-home">
+
+		<!-- Main Hero Card -->
+		<div class="home-card">
+
+			<!-- LEFT SIDE -->
+			<div class="home-left">
+
+				<div class="home-check">
+					✓
+				</div>
+
+				<h1>
+					Your Vote,<br>
+					Your Voice!
+				</h1>
+
+				<p class="home-description">
+					Participate in secure and transparent online
+					elections with VoteSecure.
+				</p>
+
+				<!-- Features -->
+
+				<div class="home-feature">
+
+					<div class="feature-icon">
+						✓
+					</div>
+
+					<div>
+						<h4>Secure Voting</h4>
+						<p>Your vote is protected and confidential.</p>
+					</div>
+
+				</div>
+
+				<div class="home-feature">
+
+					<div class="feature-icon">
+						✓
+					</div>
+
+					<div>
+						<h4>Easy to Use</h4>
+						<p>Vote online quickly and conveniently.</p>
+					</div>
+
+				</div>
+
+				<div class="home-feature">
+
+					<div class="feature-icon">
+						✓
+					</div>
+
+					<div>
+						<h4>Transparent Process</h4>
+						<p>Fair and reliable online elections.</p>
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<!-- RIGHT SIDE -->
+			<div class="home-right">
+
+				<div class="welcome-icon">
+					✓
+				</div>
+
+				<h2>
+					Welcome to VoteSecure
+				</h2>
+
+				<p class="welcome-text">
+					Online Voting System
+				</p>
+
+				<p class="welcome-description">
+					Make your voice heard. Sign in to vote or
+					register as a new voter to participate in
+					the election.
+				</p>
+
+
+				<!-- Sign In Button -->
+
+				<a th:href="@{/signin}"
+				   class="home-btn home-btn-primary">
+
+					Sign In
+
+				</a>
+
+
+				<!-- Register Button -->
+
+				<a th:href="@{/register}"
+				   class="home-btn home-btn-secondary">
+
+					Register as a Voter
+
+				</a>
+
+
+				<div class="home-note">
+
+					<span>✓</span>
+					Secure • Simple • Transparent
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+</body>
+</html>

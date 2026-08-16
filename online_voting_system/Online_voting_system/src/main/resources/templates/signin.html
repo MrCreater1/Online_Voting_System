@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+</head>
+
+<body>
+
+<section class="login-page">
+
+	<div class="login-wrapper">
+
+		<!-- ================= LEFT SIDE ================= -->
+
+		<div class="login-intro">
+
+			<div class="intro-icon">
+				✓
+			</div>
+
+			<h1>Welcome Back!</h1>
+
+			<p>
+				Sign in to your account and participate
+				in a secure and transparent online election.
+			</p>
+
+			<div class="security-points">
+
+				<div class="security-item">
+					<span>✓</span>
+					<div>
+						<strong>Secure Voting</strong>
+						<small>Your vote is protected.</small>
+					</div>
+				</div>
+
+				<div class="security-item">
+					<span>✓</span>
+					<div>
+						<strong>Easy Access</strong>
+						<small>Vote from anywhere, anytime.</small>
+					</div>
+				</div>
+
+				<div class="security-item">
+					<span>✓</span>
+					<div>
+						<strong>Transparent Process</strong>
+						<small>Fair and reliable elections.</small>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- ================= LOGIN CARD ================= -->
+
+		<div class="login-card">
+
+			<div class="login-header">
+
+				<div class="login-card-icon">
+					👤
+				</div>
+
+				<h2>Sign In</h2>
+
+				<p>
+					Enter your credentials to continue
+				</p>
+
+			</div>
+
+
+			<!-- Session message -->
+
+			<div class="success-message"
+			     th:if="${session.vmsg}">
+
+				<span th:text="${session.vmsg}"></span>
+
+				<th:block
+						th:text="${#session.removeAttribute('vmsg')}">
+				</th:block>
+
+			</div>
+
+
+			<!-- Login error -->
+
+			<div class="error-message"
+			     th:if="${param.error}">
+
+				<strong>Login failed</strong>
+				<br>
+				Invalid username or password.
+
+			</div>
+
+
+			<!-- Logout message -->
+
+			<div class="success-message"
+			     th:if="${param.logout}">
+
+				<strong>Successfully logged out!</strong>
+				<br>
+				You have been safely logged out.
+
+			</div>
+
+
+			<!-- ================= FORM ================= -->
+
+			<form th:action="@{/dologin}"
+			      method="post"
+			      class="login-form">
+
+				<!-- Email -->
+
+				<div class="form-group">
+
+					<label for="username">
+						Email Address
+					</label>
+
+					<div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+						<input
+								type="text"
+								id="username"
+								name="username"
+								placeholder="Enter your email address"
+								required>
+
+					</div>
+
+				</div>
+
+
+				<!-- Password -->
+
+				<div class="form-group">
+
+					<label for="password">
+						Password
+					</label>
+
+					<div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+						<input
+								type="password"
+								id="password"
+								name="password"
+								placeholder="Enter your password"
+								required>
+
+					</div>
+
+				</div>
+
+
+				<!-- Login Button -->
+
+				<button type="submit"
+				        class="login-button">
+
+					Sign In
+					<span>→</span>
+
+				</button>
+
+			</form>
+
+
+			<!-- Register -->
+
+			<div class="register-link">
+
+				Don't have an account?
+
+				<a th:href="@{/register}">
+					Create an account
+				</a>
+
+			</div>
+
+
+			<!-- ================= ADMIN INFO ================= -->
+
+			<div class="admin-box">
+
+				<div class="admin-title">
+					<span>⚙</span>
+					Administrator Access
+				</div>
+
+				<p>
+					For demonstration purposes, use:
+				</p>
+
+				<div class="admin-credentials">
+
+					<div>
+						<span>Email</span>
+						<strong>admin</strong>
+					</div>
+
+					<div>
+						<span>Password</span>
+						<strong>admin</strong>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+</body>
+</html>

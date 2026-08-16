@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+</head>
+
+<body>
+
+<section class="login-page">
+
+	<div class="login-wrapper">
+
+		<!-- ================= LEFT SIDE ================= -->
+
+		<div class="login-intro">
+
+			<div class="intro-icon">
+				✓
+			</div>
+
+			<h1>Join the Election!</h1>
+
+			<p>
+				Create your voter account and participate
+				in a secure and transparent online election.
+			</p>
+
+			<div class="security-points">
+
+				<div class="security-item">
+					<span>✓</span>
+					<div>
+						<strong>Secure Registration</strong>
+						<small>Your personal information is protected.</small>
+					</div>
+				</div>
+
+				<div class="security-item">
+					<span>✓</span>
+					<div>
+						<strong>Easy Voting</strong>
+						<small>Register once and vote securely online.</small>
+					</div>
+				</div>
+
+				<div class="security-item">
+					<span>✓</span>
+					<div>
+						<strong>Trusted Process</strong>
+						<small>Fair and transparent online elections.</small>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- ================= REGISTER CARD ================= -->
+
+		<div class="login-card">
+
+			<div class="login-header">
+
+				<div class="login-card-icon">
+					👤
+				</div>
+
+				<h2>Create Account</h2>
+
+				<p>
+					Register as a new voter
+				</p>
+
+			</div>
+
+
+			<!-- ================= ERROR MESSAGE ================= -->
+
+			<div class="error-message"
+			     th:if="${session.fail}">
+
+				<strong>Registration Failed</strong>
+				<br>
+
+				<span th:text="${session.fail}"></span>
+
+				<th:block
+						th:text="${#session.removeAttribute('fail')}">
+				</th:block>
+
+			</div>
+
+
+			<!-- ================= SUCCESS MESSAGE ================= -->
+
+			<div class="success-message"
+			     th:if="${session.msg}">
+
+				<strong>Registration Successful</strong>
+				<br>
+
+				<span th:text="${session.msg}"></span>
+
+				<th:block
+						th:text="${#session.removeAttribute('msg')}">
+				</th:block>
+
+			</div>
+
+
+			<!-- ================= REGISTRATION FORM ================= -->
+
+			<form th:action="@{/createuser}"
+			      method="post"
+			      class="login-form">
+
+
+				<!-- ================= USERNAME ================= -->
+
+				<div class="form-group">
+
+					<label for="name">
+						User Name
+					</label>
+
+					<div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+						<input
+								type="text"
+								id="name"
+								name="name"
+								placeholder="Enter your user name"
+								required>
+
+					</div>
+
+				</div>
+
+
+				<!-- ================= EMAIL ================= -->
+
+				<div class="form-group">
+
+					<label for="email">
+						Email Address
+					</label>
+
+					<div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+						<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="Enter your email address"
+								required>
+
+					</div>
+
+				</div>
+
+
+				<!-- ================= PHONE ================= -->
+
+				<div class="form-group">
+
+					<label for="phone">
+						Phone Number
+					</label>
+
+					<div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📱
+                        </span>
+
+						<input
+								type="tel"
+								id="phone"
+								name="phone"
+								placeholder="Enter your 10-digit phone number"
+								pattern="[0-9]{10}"
+								maxlength="10"
+								required>
+
+					</div>
+
+					<small class="input-help">
+						Enter a 10-digit phone number.
+					</small>
+
+				</div>
+
+
+				<!-- ================= PASSWORD ================= -->
+
+				<div class="form-group">
+
+					<label for="password">
+						Password
+					</label>
+
+					<div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+						<input
+								type="password"
+								id="password"
+								name="password"
+								placeholder="Enter your password"
+								required>
+
+					</div>
+
+				</div>
+
+
+				<!-- ================= REGISTER BUTTON ================= -->
+
+				<button type="submit"
+				        class="login-button">
+
+					Create Account
+
+					<span>→</span>
+
+				</button>
+
+			</form>
+
+
+			<!-- ================= LOGIN LINK ================= -->
+
+			<div class="register-link">
+
+				Already have an account?
+
+				<a th:href="@{/login}">
+					Sign In
+				</a>
+
+			</div>
+
+
+			<!-- ================= SECURITY INFO ================= -->
+
+			<div class="admin-box">
+
+				<div class="admin-title">
+
+					<span>🔐</span>
+
+					Secure Voter Registration
+
+				</div>
+
+				<p>
+					Your information is used only for
+					voter registration and authentication.
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+</body>
+</html>

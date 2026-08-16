@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+
+    <title th:text="${title}">Online Voting</title>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="user-navbar">
+
+    <div class="navbar-left">
+
+        <a th:href="@{/user/}"
+           class="logo">
+            Online Voting
+        </a>
+
+    </div>
+
+    <div class="navbar-right">
+
+        <a th:href="@{/user/}">
+            Home
+        </a>
+
+        <a th:href="@{/user/about}">
+            About
+        </a>
+
+        <span>
+                Welcome
+                <strong th:text="${user.name}">
+                    User
+                </strong>
+            </span>
+
+        <a th:href="@{/logout}"
+           class="logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- Navbar End -->
+
+
+<!-- Page Content -->
+
+<div th:replace="${content}">
+</div>
+
+
+</body>
+</html>
+

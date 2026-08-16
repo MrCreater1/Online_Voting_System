@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap first -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+
+  <!-- Custom CSS after Bootstrap -->
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+
+  <title th:text="${title}">Online Voting System</title>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar-custom">
+
+  <div class="navbar-container">
+
+    <!-- Brand -->
+    <a class="brand" th:href="@{/}">
+      <div class="brand-icon">✓</div>
+      <div>
+        <span class="brand-title">VoteSecure</span>
+        <span class="brand-subtitle">Online Voting System</span>
+      </div>
+    </a>
+
+    <!-- Navigation -->
+    <div class="nav-links">
+
+      <a th:href="@{/}"
+         th:classappend="${title == 'Home'} ? 'nav-active' : ''">
+        Home
+      </a>
+
+      <a th:href="@{/register}"
+         th:classappend="${title == 'Register'} ? 'nav-active' : ''">
+        Register
+      </a>
+
+      <a th:href="@{/signin}"
+         th:classappend="${title == 'Login'} ? 'nav-active' : ''">
+        Login
+      </a>
+
+      <a th:href="@{/about}"
+         th:classappend="${title == 'About'} ? 'nav-active' : ''">
+        About
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="main-container">
+
+  <div th:replace="${content}">
+  </div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+  <div class="footer-content">
+
+    <div>
+      <strong>VoteSecure</strong>
+      <span> • Secure Online Voting System</span>
+    </div>
+
+    <div>
+      © 2026 All Rights Reserved
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

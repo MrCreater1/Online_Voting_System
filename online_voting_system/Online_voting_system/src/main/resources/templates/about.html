@@ -1,0 +1,107 @@
+```html
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>About - Online Voting</title>
+</head>
+
+<body>
+
+<section>
+
+	<div class="about-container">
+
+		<div class="about-card">
+
+			<h1 class="about-title">About Online Voting</h1>
+
+			<p class="about-subtitle">
+				A simple, secure and convenient platform for online voting.
+			</p>
+
+			<div class="about-content">
+
+				<p>
+					Welcome to our <strong>Online Voting System</strong>.
+					This application is designed to provide a simple and
+					convenient way for registered voters to participate in
+					elections online.
+				</p>
+
+				<p>
+					The system allows users to register as voters, securely
+					log in to their accounts and cast their votes electronically.
+					The goal of this project is to make the voting process
+					easier, faster and more organized.
+				</p>
+
+				<h3>Our Objective</h3>
+
+				<p>
+					The main objective of this project is to develop a
+					user-friendly voting platform that can manage voters,
+					candidates and voting processes efficiently while
+					maintaining the integrity of the election.
+				</p>
+
+				<h3>Why Online Voting?</h3>
+
+				<p>
+					Traditional voting processes can require significant
+					time and resources. An online voting system can simplify
+					the process by allowing eligible voters to participate
+					digitally from a convenient location.
+				</p>
+
+			</div>
+
+			<div class="features">
+
+				<div class="feature-box">
+					<div class="feature-icon">🔐</div>
+					<h4>Secure</h4>
+					<p>
+						Authentication and controlled access help protect
+						voter information.
+					</p>
+				</div>
+
+				<div class="feature-box">
+					<div class="feature-icon">⚡</div>
+					<h4>Fast</h4>
+					<p>
+						Digital voting makes the voting process faster
+						and reduces manual work.
+					</p>
+				</div>
+
+				<div class="feature-box">
+					<div class="feature-icon">👥</div>
+					<h4>User Friendly</h4>
+					<p>
+						A simple interface makes it easy for voters to
+						register, log in and participate.
+					</p>
+				</div>
+
+			</div>
+
+			<div class="about-button">
+				<a th:href="@{/}">
+					Back to Home
+				</a>
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+</body>
+</html>
+```
